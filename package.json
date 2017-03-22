@@ -2,10 +2,12 @@
   "name": "spotify-code",
   "version": "1.0.0",
   "description": "Spotify Fellowship Application",
-  "main": "webpack.config.js",
+  "main": "index.js",
   "scripts": {
+    "FIXFIX": "webpack --progress --profile --colors --display-error-details --display-cached",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch & nodemon backend/server.js"
+    "start": "webpack --watch & node backend/server.js",
+    "dev": "webpack-dev-server --inline --content-base ./views"
   },
   "repository": {
     "type": "git",
@@ -36,7 +38,7 @@
     "cors": "^2.8.1",
     "css-loader": "^0.27.3",
     "express": "^4.15.2",
-    "history": "^4.6.1",
+    "history": "2.1.2",
     "if-env": "^1.0.0",
     "material-ui": "^0.17.1",
     "node-sass": "^4.5.0",
@@ -44,7 +46,7 @@
     "pg-hstore": "^2.3.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-router": "^4.0.0",
+    "react-router": "2.8.1",
     "react-tap-event-plugin": "^2.0.1",
     "resolve-url-loader": "^2.0.2",
     "sass-loader": "^6.0.3",
@@ -52,10 +54,11 @@
     "sequelize-cli": "^2.6.0",
     "style-loader": "^0.14.1",
     "url-loader": "^0.5.8",
-    "webpack": "^2.2.1"
+    "webpack": "^2.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.7",
+    "babel": "^6.23.0",
     "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
@@ -69,13 +72,13 @@
     "node-sass": "^4.5.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-router": "^4.0.0",
+    "react-router": "2.8.1",
     "sass-loader": "^6.0.3",
     "sequelize": "^3.30.2",
     "sequelize-cli": "^2.6.0",
     "style-loader": "^0.14.1",
     "url-loader": "^0.5.8",
-    "webpack": "^2.2.1",
+    "webpack": "^2.3.0",
     "webpack-dev-server": "^2.4.2"
   }
 }

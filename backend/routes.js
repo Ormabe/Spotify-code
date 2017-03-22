@@ -5,97 +5,85 @@ const express = require('express');
 const router = express.Router();
 
 // REQUIRE IN MODELS
-const People = require('./models').People;
-const Cities = require('./models').Cities;
+const Entry = require('./models').Entry;
 const models = require('./models');
 
-  router.route('/')
-   .get((req, res) => {
-      return People.findAll({
-        include: [Cities]
-      })
-      .then((data) => {
-        res.send(data)
-      })
-      .catch((err)=> {
-        console.log(err)
-      })
-    })
-
-    .post((req, res) => {
-    	return Cities.findOrCreate({
-    		where: {
-    			city: req.body.favoriteCity
-    		}
-    	})
-    	.then((data) => {
-    		console.log('data: ', data[0].dataValues.id)
-    		return People.findOrCreate({
-    			where: {
-    				name: req.body.name,
-    				favoriteCity: data[0].dataValues.id
-    			},
-    			include: [Cities]
-    		})
-    	})
-    	.then((data) => {
-    		res.send(data);
-    	})
-    	.catch((err) => {
-    		console.log(err);
-    	})
-    })
 
 
+router.route('/')
+	.post((req,res) => {
+		return Entry.create({
+		  name: req.body.name,
+		  favoriteCity: req.body.favoriteCity
+		})
+		.then((data) => {
+			res.send(data);
+		})
+		.catch((err) => {
+			console.log(err);
+		})
 
+	})
 
-  router.route('/')
-   .put((req,res) => {
-      Cities.findAll({
-        where: {
-          name: req.body.name
-        },
-        include: []
-      })
-      .then((data) => {
-        res.send(data)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-    })
+	.get((req,res) => {
+		Entry.findAll({
+			order:[['createdAt', 'DESC']]
+		})
+		.then((data) => {
+			res.send(data)
+		})
+		.catch((err) => {
+			console.log(err)
+		})
+	})
 
-  .delete((req, res) => {
-      People.findById({
-        where: {
-          id: req.params.id
-        }
-      })
-      .then((data) => {
-        res.send(data)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-    })
+	.put((req,res) =>{
+		return Entry.findAll({
+		    where: {
+		      favoriteCity: req.body.favoriteCity
+		    }
+			})
+		.then((city) => {
+	  	city.forEach((newCity) => {
+	        newCity.update({
+	        	favoriteCity: req.body.newFavoriteCity
+	        },{
+	        	returning: true,
+	        	plain: true
+	        });
+	    });
+		})
+		.then((result) => {
+			res.send(result)
+		})
+		.catch((err) => {
+			console.log(err)
+		})
+	})
 
-  router.route('/:id')
-    .delete((req, res) => {
-      People.findById({
-          where: {
-            id: req.params.id
-          }
-        })
-        .then(function(data) {
-          data.destroy()
-        })
-        .then((data) => {
-          console.log('Deleted!')
-          res.send(data)
-        })
-        .catch((err) => {
-          res.send(err)
-        })
-      })
+router.route('/:id')
+	.get((req, res) => {
+	  	Entry.findById(req.params.id)
+	    .then((data) => {
+			res.send(data);
+	    })
+	    .catch((err) => {
+	    	console.log(err)
+	    })
+	})
+
+	.delete((req, res) => {
+		Entry.findById(req.params.id)
+		.then((people) => {
+			people.destroy()
+		})
+		.then((data) => {
+			console.log('Deleted!')
+			res.send(data)
+		})
+		.catch((err) => {
+			res.send(err)
+		})
+	})
 
 module.exports = router;
