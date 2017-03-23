@@ -1,7 +1,5 @@
-<p align="center">
-![alt text](images/favicon.png "Emoji Logo")<br>
+![alt text](images/favicon.png "Emoji Logo")
 ![alt text](images/title.png "Page title")
-</p>
 
 
 * Live Demo: https://spotify-code.herokuapp.com
