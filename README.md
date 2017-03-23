@@ -1,7 +1,7 @@
 
 <center>
-![alt text](favicon.png "Emoji Logo")
-![alt text](title.png "Page title")
+![alt text](images/favicon.png "Emoji Logo")
+![alt text](images/title.png "Page title")
 </center>
 
 
