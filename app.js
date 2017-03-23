@@ -1,1 +1,0 @@
-$( "#home-button" ).load( "/public/people.html);
