@@ -26,6 +26,9 @@ Back-end (for MAC):
 * [Postico](https://eggerapps.at/postico/)
 * [Express](http://expressjs.com/)
 * [Sequelize](http://docs.sequelizejs.com/en/v3/)
+* [Mochajs](https://mochajs.org/)
+* [Chaijs](http://chaijs.com)
+* [Istanbul](https://istanbul.js.org/)
 
 Front-end:
 
