@@ -1,10 +1,7 @@
 ![alt text](images/favicon.png "Emoji Logo")
 ![alt text](images/title.png "Page title")
-<img align="center" src="images/favicon.png" alt="Emoji Logo" />
 
 * Live Demo: https://spotify-code.herokuapp.com
-
-* Spotify Code Video Demo: https://vimeo.com/#
 
 * Code Style:
 
@@ -49,6 +46,12 @@ This is a simple web-based app that uses restful API to create, retrieve, update
 - **Sequelize** is a promise-based ORM (Object-Relational Mapping) for Node.js. It supports the dialects PostgreSQL, MySQL, MariaDB, SQLite and MSSQL and features solid transaction support, relations, and read replication.
 
 - **Express.js** or simply Express, is a web application framework for Node.js, released as free and open-source software under the MIT License. It is designed for building web applications and APIs. It is the de facto standard server framework for Node.js.
+
+- **Mocha** is a JavaScript test framework running on node.js, featuring browser support, asynchronous testing, test coverage reports, and use of any assertion library.
+
+- **Chai** is a BDD (Behavior Driven Development) / TDD (Test Driven Development) assertion library for node and the browser that can be delightfully paired with any javascript testing framework.
+
+- **Istanbul** is a code coverage tool which can be used to generate report on JS code coverage. The generated report returns statistics on how many and which functions, branches and line of JS code are being called during code execution. 
 
 ## For more information about using Node.js, see these Dev Center articles:
 
