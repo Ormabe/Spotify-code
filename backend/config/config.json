@@ -9,7 +9,7 @@
   "test": {
     "username": "Rabiya",
     "password": null,
-    "database": "spotify-code",
+    "database": "spotify-code-test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },

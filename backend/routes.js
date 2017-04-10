@@ -20,7 +20,7 @@ router.route('/')
 			res.send(data);
 		})
 		.catch((err) => {
-			console.log(err);
+			print('Error:'+ err.message);
 		})
 
 	})
@@ -33,7 +33,7 @@ router.route('/')
 			res.send(data)
 		})
 		.catch((err) => {
-			console.log(err)
+			print('Error:'+ err.message);
 		})
 	})
 
@@ -57,7 +57,7 @@ router.route('/')
 			res.send(result)
 		})
 		.catch((err) => {
-			console.log(err)
+			print('Error:' + err.message)
 		})
 	})
 
@@ -65,10 +65,10 @@ router.route('/:id')
 	.get((req, res) => {
 	  	Entry.findById(req.params.id)
 	    .then((data) => {
-			res.send(data);
+				res.send(data);
 	    })
 	    .catch((err) => {
-	    	console.log(err)
+	    	print('Error:'+ err.message);
 	    })
 	})
 
@@ -78,11 +78,10 @@ router.route('/:id')
 			people.destroy()
 		})
 		.then((data) => {
-			console.log('Deleted!')
 			res.send(data)
 		})
 		.catch((err) => {
-			res.send(err)
+			print("Error:" + err.message);
 		})
 	})
 
